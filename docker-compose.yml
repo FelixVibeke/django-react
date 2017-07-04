@@ -1,0 +1,11 @@
+version: "3"
+services:
+  nginx:
+    image: nginx-simple:latest
+    container_name: nginx-simple
+    restart: always
+    network_mode: "bridge"
+    volumes:
+      - ./wwwroot/:/var/www/
+    build:
+      context: .
