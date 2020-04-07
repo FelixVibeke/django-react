@@ -32,7 +32,7 @@ We need to add `"homepage": "/react/",` to package.json to ensure all files are 
 In settings.py, we add:
 ```
 	ALLOWED_HOSTS = ['0.0.0.0','172.17.0.2','127.0.0.1', 'localhost']
-	FORCE_SCRIPT_NAME = '/django
+	FORCE_SCRIPT_NAME = '/django'
 ```
 ### Outstanding issues:
 
