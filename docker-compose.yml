@@ -7,5 +7,8 @@ services:
     network_mode: "bridge"
     volumes:
       - ./wwwroot/:/var/www/
+    ports:
+      - "8000:8000"
     build:
       context: .
+      
