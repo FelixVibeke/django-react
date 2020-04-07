@@ -10,28 +10,31 @@ Trailing slash is necessary for /react/ and /django/
 
 Need to prerun in react folder:
 
-	`npm run build`
+```
+	npm run build 
+```
 
 Finally, run in main folder:
-	
-	`docker-compose build`
-	`docker-compose up`
 
+```
+	docker-compose build
+	docker-compose up
+```
 
 ## Note
 
-# Modifications to React
+### Modifications to React
 
 We need to add `"homepage": "/react/",` to package.json to ensure all files are routed correctly.
 
-# Modifications to Django
+### Modifications to Django
 
 In settings.py, we add:
-
-	`ALLOWED_HOSTS = ['0.0.0.0','172.17.0.2','127.0.0.1', 'localhost']`
-	`FORCE_SCRIPT_NAME = '/django`
-
-# Outstanding issues:
+```
+	ALLOWED_HOSTS = ['0.0.0.0','172.17.0.2','127.0.0.1', 'localhost']
+	FORCE_SCRIPT_NAME = '/django
+```
+### Outstanding issues:
 
 1. CSS for Django's admin portal is not showing correctly.
 2. React router is currently still untested (not sure if subpaths will map correctly)
@@ -39,11 +42,13 @@ In settings.py, we add:
 4. Should `npm run build` be included in entrypoint script?
 
 
-# Useful links
+### Useful links
 
 To inspect a container:
-	
-	`docker exec -it <container-id> /bin/sh`
+
+```	
+	docker exec -it <container-id> /bin/sh
+```
 
 Useful links:
 	
