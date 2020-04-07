@@ -13,9 +13,6 @@ echo "django_project initialized."
 #cd react
 #npm run build
 #cd ..
-#echo "react built"
-
-#gunicorn -w 4 teste:application --daemon
 
 echo "Fetch static files at localhost:8000/static/file1.html"
 echo "Fetch react app at localhost:8000/react/"
