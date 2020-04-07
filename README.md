@@ -1,4 +1,6 @@
-Fetch static files at localhost:8000/static/file1.html
+# start.django-react
+
+Fetch static files e.g. simple .html at localhost:8000/static/file1.html
 
 Fetch react app at localhost:8000/react/
 
@@ -6,15 +8,15 @@ Get django data at localhost:8000/django/
 
 Trailing slash is necessary for /react/ and /django/
 
-## How to use
+# How to use
 
-Need to prerun in react folder:
+Run this in the react directory to generate the production build:
 
 ```
 	npm run build 
 ```
 
-Finally, run in main folder:
+Return to root directory and build container:
 
 ```
 	docker-compose build
