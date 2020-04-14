@@ -26,10 +26,10 @@ SECRET_KEY = 'f*6z#v&wd^0+x=5)bhhacr3=f)!o%j%fe0^@jh+xi*&9abuc0n'
 DEBUG = True
 
 #VERY IMPORTANT
-ALLOWED_HOSTS = ['0.0.0.0','172.17.0.2','127.0.0.1', 'localhost']
+#ALLOWED_HOSTS = ['localhost'] #oddly this doesn't seem needed?
 FORCE_SCRIPT_NAME = '/django'
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.abspath('/var/www/static')
+
 
 # Application definition
 
