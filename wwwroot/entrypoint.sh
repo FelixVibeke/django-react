@@ -4,7 +4,7 @@ set -e #stops execution of script if failure occurs somewhere
 #init Django project
 cd django_project
 ./manage.py migrate
-#./manage.py collectstatic --noinput
+./manage.py collectstatic --noinput
 gunicorn --bind 0.0.0.0:8000 --access-logfile - django_project.wsgi:application --daemon #change django_project to folder name
 cd ..
 echo "django_project initialized."

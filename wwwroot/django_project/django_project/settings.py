@@ -28,8 +28,8 @@ DEBUG = True
 #VERY IMPORTANT
 ALLOWED_HOSTS = ['0.0.0.0','172.17.0.2','127.0.0.1', 'localhost']
 FORCE_SCRIPT_NAME = '/django'
-#PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-#STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # Application definition
 
