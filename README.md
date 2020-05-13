@@ -32,8 +32,9 @@ Return to root directory and build container:
 
 ## For Production
 
-In the Dockerfile, uncomment the line `ADD . /var/www` . This ensures the contents of the directory is copied into the container.
-Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
+1. In the Dockerfile, uncomment the line `ADD . /var/www` . This ensures the contents of the directory is copied into the container.
+2. Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
+3. Modify .env files accordingly.
 
 # Note
 
