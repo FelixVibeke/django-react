@@ -1,14 +1,21 @@
 version: "3"
 services:
   nginx:
-    image: nginx-simple:latest
-    container_name: nginx-simple
+    image: nginx-arch:latest
+    container_name: nginx-arch
     restart: always
-    network_mode: "bridge"
     volumes:
-      - ./wwwroot/:/var/www/
+      - ./:/var/www/
     ports:
       - "8000:80"
+    env_file: .env
+    depends_on:
+      - db
     build:
       context: .
-      
+  
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+  

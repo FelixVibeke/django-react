@@ -1,20 +1,27 @@
 # start.django-react
 
-Fetch static files e.g. simple .html at localhost:8000/static/file1.html
+A single Docker container hosting both React and Django. 
 
-Fetch react app at localhost:8000/react/
+The React App is accessible directly at localhost:8000.
+The Django API is accessible at localhost:8000/django/.
 
-Get django data at localhost:8000/django/
-
-Trailing slash is necessary for /react/ and /django/
+The /django_static/ and /media/ subpaths also serve static files.
 
 # How to use
+
+Place the .env file in the root folder, and add the following:
+```
+	DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+	SECRET_KEY=your_secret_key
+	DEBUG=True
+```
 
 Run this in the react directory to generate the production build:
 
 ```
 	npm run build 
 ```
+NGINX container only serves React App's production build.
 
 Return to root directory and build container:
 
@@ -23,25 +30,34 @@ Return to root directory and build container:
 	docker-compose up
 ```
 
-## Note
+## For Production
 
-### Modifications to React
+In the Dockerfile, uncomment the line `ADD . /var/www` . This ensures the contents of the directory is copied into the container.
+Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
 
-We need to add `"homepage": "/react/",` to package.json to ensure all files are routed correctly.
+# Note
 
 ### Modifications to Django
 
-In settings.py, we add:
+In settings.py, we have to add the following to allow NGINX to serve the files correctly.
 ```
-	ALLOWED_HOSTS = ['0.0.0.0','172.17.0.2','127.0.0.1', 'localhost']
 	FORCE_SCRIPT_NAME = '/django'
-```
-### Outstanding issues:
+	STATIC_URL = '/django_static/'
+	STATIC_ROOT = os.path.abspath('/var/www/django_static') 
 
-1. CSS for Django's admin portal is not showing correctly.
-2. React router is currently still untested (not sure if subpaths will map correctly)
-3. Trailing slashes seem oddly necessary e.g. localhost:8000/react will not work, but localhost:8000/react/ does
-4. Should `npm run build` be included in entrypoint script?
+	MEDIA_URL = '/media/'
+	MEDIA_ROOT = os.path.abspath('/var/www/media/')
+```
+These are explained in comments in settings.py.
+
+### Important details:
+
+1. React Router should be able to handle subpaths correctly e.g. given a subpath /a/b/c/d it routes to the correct 
+2. React App must not have any subpaths that conflict with NGINX instructions i.e. /django, /django_static or /media.
+
+### For consideration
+
+1. Should `npm run build` be included in entrypoint script?
 
 
 ### Useful links
