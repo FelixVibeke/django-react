@@ -7,36 +7,36 @@ The Django API is accessible at localhost:8000/django/.
 
 The /django_static/ and /media/ subpaths also serve static files.
 
-# How to use
+## How to use
 
-Place the .env file in the root folder, and add the following:
+1. Place the .env file in the root folder, and add the following:
 ```
 	DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
 	SECRET_KEY=your_secret_key
 	DEBUG=True
 ```
 
-Run this in the react directory to generate the production build:
+2. Run this in the react directory to generate the production build:
 
 ```
 	npm run build 
 ```
 NGINX container only serves React App's production build.
 
-Return to root directory and build container:
+3. Return to root directory and build container:
 
 ```
 	docker-compose build
 	docker-compose up
 ```
 
-## For Production
+## Generate production
 
 1. In the Dockerfile, uncomment the line `ADD . /var/www` . This ensures the contents of the directory is copied into the container.
 2. Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
 3. Modify .env files accordingly.
 
-# Note
+## Important details
 
 ### Modifications to Django
 
@@ -51,7 +51,7 @@ In settings.py, we have to add the following to allow NGINX to serve the files c
 ```
 These are explained in comments in settings.py.
 
-### Important details:
+### Things to handle
 
 1. React Router should be able to handle subpaths correctly e.g. given a subpath /a/b/c/d it routes to the correct 
 2. React App must not have any subpaths that conflict with NGINX instructions i.e. /django, /django_static or /media.
