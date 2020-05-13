@@ -2,10 +2,10 @@
 
 A single Docker container hosting both React and Django. 
 
-The React App is accessible directly at localhost:8000.
-The Django API is accessible at localhost:8000/django/.
+The React App is accessible directly at `localhost:8000`.
+The Django API is accessible at `localhost:8000/django/`.
 
-The /django_static/ and /media/ subpaths also serve static files.
+The `/django_static/` and `/media/` subpaths also serve static files.
 
 ## How to use
 
@@ -53,7 +53,7 @@ These are explained in comments in settings.py.
 
 ### Things to handle
 
-1. React Router should be able to handle subpaths correctly e.g. given a subpath /a/b/c/d it routes to the correct 
+1. React Router should be able to handle subpaths correctly e.g. given a subpath /a/b/c/d it routes to the correct page
 2. React App must not have any subpaths that conflict with NGINX instructions i.e. /django, /django_static or /media.
 
 ### For consideration
