@@ -22,9 +22,10 @@ node_modules
 coverage
 
 # production
-/build
+build/
 django_static
 media
+logs
 
 # misc
 .DS_Store
