@@ -23,7 +23,12 @@ The `/django_static/` and `/media/` subpaths also serve static files.
 ```
 NGINX container only serves React App's production build.
 
-3. Return to root directory and build container:
+3. Make logs directory in root folder**
+```
+	mkdir logs
+```
+
+4. Return to root directory and build container:
 
 ```
 	docker-compose build
@@ -35,6 +40,11 @@ NGINX container only serves React App's production build.
 1. In the Dockerfile, uncomment the line `ADD . /var/www` . This ensures the contents of the directory is copied into the container.
 2. Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
 3. Modify .env files accordingly.
+
+### Rancher deployment
+
+1. Add container to load balancer with port 80.
+2. Add volumes for log and media folders.
 
 ## Important details
 

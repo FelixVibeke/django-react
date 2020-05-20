@@ -13,3 +13,4 @@ requests-oauthlib==0.8.0
 six==1.14.0
 sqlparse==0.3.0
 urllib3==1.25.8
+Pillow==7.0.0
