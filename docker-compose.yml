@@ -3,7 +3,6 @@ services:
   nginx:
     image: nginx-arch:latest
     container_name: nginx-arche
-    restart: always
     volumes:
       - ./:/var/www/
     ports:
