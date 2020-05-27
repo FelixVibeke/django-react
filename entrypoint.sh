@@ -7,10 +7,15 @@ python wait_for_postgres.py
 ./django_project/manage.py collectstatic --noinput
 ./django_project/manage.py migrate
 
+echo "Starting django project."
 cd django_project
 gunicorn --bind 0.0.0.0:5000 --access-logfile - django_project.wsgi:application --daemon -R #change django_project to folder name
 cd ..
-echo "django_project initialized."
+
+echo "Starting React development server."
+cd react
+node ./node_modules/react-scripts/scripts/start.js >/dev/null </dev/null &
+cd ..
 
 echo "Starting nginx."
 exec "$@"
