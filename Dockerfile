@@ -13,7 +13,7 @@ ADD . /var/www
 
 RUN pip install -U -r /var/www/requirements.txt
 
-#set shared directory to working directory
+#set shared directory to working directoryi;
 WORKDIR /var/www
 
 

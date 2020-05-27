@@ -37,9 +37,9 @@ NGINX container only serves React App's production build.
 
 ## Generate production
 
-1. In the Dockerfile, uncomment the line `ADD . /var/www` . This ensures the contents of the directory is copied into the container.
-2. Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
-3. Modify .env files accordingly.
+1. Modify ONLY the request URLs from React; change them from `localhost:8000/django/a/b/c` to `your-server.com/django/a/b/c`.
+2. Modify .env files accordingly.
+3. Remove the code to start development server in entrypoint.sh and also change nginx.default to serve production instead of development.
 
 ### Rancher deployment
 
