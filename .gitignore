@@ -25,7 +25,6 @@ coverage
 build/
 django_static
 media
-logs
 
 # misc
 .DS_Store
@@ -37,3 +36,9 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# exclude everything in logs
+logs/*
+
+# exception to the rule to keep empty log folder
+!logs/.gitkeep 
