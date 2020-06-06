@@ -69,6 +69,7 @@ These are explained in comments in settings.py.
 ### For consideration
 
 1. Should `npm run build` be included in entrypoint script?
+2. Testing
 
 
 ### Useful links
