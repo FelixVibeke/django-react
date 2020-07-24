@@ -37,6 +37,12 @@ server {
 #    try_files $uri @indexes;
 #  }
 
+  #TODO: not sure if there's a better way to differentiate static assets from paths
+  location ~* \.(map|js|css|json|txt|png|jpg|jpeg|svg)$ {
+    alias /var/www/react/build/;
+    try_files $uri $uri/ =404;    
+  }
+
   #forward requests to django to serve up html file with meta tags
   location / { 
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
