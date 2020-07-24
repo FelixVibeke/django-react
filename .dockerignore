@@ -26,3 +26,5 @@ django_static/
 stats.json
 webpack-stats.json
 npm-debug.log
+
+venv/
