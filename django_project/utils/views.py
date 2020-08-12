@@ -5,9 +5,6 @@ from django.http import HttpResponse
 
 def renderHTML(request, subpath=''):
 	soup = getSoup()
-
-	print(subpath)
-	print("above is subpath")
 	setMetaTags(soup, subpath)
 	return HttpResponse(soup.prettify())
 
