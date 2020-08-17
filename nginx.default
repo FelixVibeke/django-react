@@ -28,14 +28,7 @@ server {
     proxy_redirect off;
     #proxy_redirect default;
     proxy_set_header X-Real-IP $remote_addr;
-  } 
-
-  #Serve react production on main
-#  location / {
-#    alias /var/www/react/build/;
-#    #try_files $uri /index.html;
-#    try_files $uri @indexes;
-#  }
+  }
 
   #TODO: not sure if there's a better way to differentiate static assets from paths
   location / {

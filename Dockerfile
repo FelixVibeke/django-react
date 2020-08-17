@@ -10,7 +10,7 @@ ADD nginx.default /etc/nginx/conf.d/default.conf
 ADD requirements.txt /var/www/requirements.txt
 RUN pip install -U -r /var/www/requirements.txt
 
-#ADD . /var/www
+ADD . /var/www
 
 #set shared directory to working directoryi;
 WORKDIR /var/www
