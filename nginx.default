@@ -38,16 +38,17 @@ server {
 #  }
 
   #TODO: not sure if there's a better way to differentiate static assets from paths
-  location ~* \.(map|js|css|json|txt|png|jpg|jpeg|svg)$ {
+  location / {
     alias /var/www/react/build/;
-    try_files $uri $uri/ =404;    
+    try_files $uri @backend;
   }
 
   #forward requests to django to serve up html file with meta tags
-  location / { 
+  location @backend { 
+    rewrite /(.*) /utils/$1 break;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
-    proxy_pass http://0.0.0.0:5000/utils/; #host django at container's port 5000
+    proxy_pass http://0.0.0.0:5000; #host django at container's port 5000
     proxy_redirect /django/utils/ /;
     proxy_set_header X-Real-IP $remote_addr;
   }
