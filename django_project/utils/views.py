@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.cache import cache
 # Create your views here.
 
 def renderHTML(request, subpath=''):
@@ -15,19 +16,16 @@ def insertMetaTag(soup, property, content):
 
 #Get soup object from index.html
 def getSoup():
-	with open("/var/www/react/build/index.html") as fp:
-		soup = BeautifulSoup(fp)
+	soup = cache.get('main')
 	return soup
-
 
 """
 	Todo: modify only this function!
 """
 def setMetaTags(soup, subpath):
 	"""
-		INSERT CODE HERE: example shown
+		INSERT CODE HERE: example shown. Use the insertMetaTag method to add tags to the BS object
 	"""
-
 	if subpath=='':
 		insertMetaTag(soup, "og:title", "dailybruin")
 	else:
