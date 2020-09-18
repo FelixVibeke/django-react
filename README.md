@@ -23,10 +23,7 @@ The `/django_static/` and `/media/` subpaths also serve static files.
 ```
 NGINX container only serves React App's production build.
 
-3. Make logs directory in root folder**
-```
-	mkdir logs
-```
+3. Modify `utils/urls.py` and `utils/views.py` in the Django project to handle adding meta tags. Instructions have been added in those files.
 
 4. Return to root directory and build container:
 
