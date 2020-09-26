@@ -10,6 +10,6 @@ def setSoupObject():
 	cache.set("index_base",soup,timeout=None)
 
 
-logger = logging.getLogger('samplelogger')
+logger = logging.getLogger(__name__)
 setSoupObject()
 logger.info("Cached index.html as BS object.")

@@ -191,7 +191,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'samplelogger': {
+        'utils': {
             'handlers': ['console', 'console_debug_false', 'logfile'],
             'level': 'INFO',
         },
