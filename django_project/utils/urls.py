@@ -9,6 +9,6 @@ from . import views
 
 urlpatterns = [
     path('', views.base_page, name='basePage'),
-    path('post/<post_id>', views.post_page, name='posts'),
+    path('post/<int:post_id>', views.post_page, name='posts'),
     path('data/<user>/<date>', views.data_page, name='data'),
 ]

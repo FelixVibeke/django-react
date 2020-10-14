@@ -43,7 +43,7 @@ def post_page(request, post_id):
 	#Get soup object
 	soup = get_soup()
 	#Insert a meta tag
-	insert_meta_tag(soup, "og:title", "this is post page number " + post_id)
+	insert_meta_tag(soup, "og:title", "this is post page number " + str(post_id))
 	#Return soup object
 	return HttpResponse(soup.prettify())
 
