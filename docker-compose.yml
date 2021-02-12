@@ -1,8 +1,8 @@
 version: "3"
 services:
   nginx:
-    image: nginx-arch:latest
-    container_name: nginx-arche
+    image: djangoreact:latest
+    container_name: django_react_starter
     volumes:
       - ./:/var/www/
     ports:
