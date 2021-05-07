@@ -9,7 +9,12 @@ python wait_for_postgres.py
 
 echo "Starting django project."
 cd django_project
-gunicorn --bind 0.0.0.0:5000 --access-logfile - django_project.wsgi:application --daemon -R #change django_project to folder name
+params=()
+if [[ ${DEBUG} = "True" ]]
+then
+    params+=(--reload)
+fi
+gunicorn --bind 0.0.0.0:5000 --access-logfile - django_project.wsgi:application --daemon -R "${params[@]}" #change django_project to folder name
 cd ..
 
 #echo "Starting React development server."
